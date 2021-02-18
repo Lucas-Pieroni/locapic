@@ -24,10 +24,10 @@ var server = http.createServer(app);
 var io = require('socket.io')(server);
 
 io.on('connection', function(socket){
-  console.log('a user connected');
+  console.log('User connected =>', socket.conn.remoteAddress);
   socket.on('sendMessage', function(messageData) {
-     console.log(messageData);
-     socket.emit('sendMessageToAll', messageData);
+    console.log('Message received =>', messageData);
+    socket.emit('sendMessageToAll', messageData);
   });
 });
 
