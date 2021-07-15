@@ -27,7 +27,7 @@ io.on('connection', function(socket){
   console.log('User connected =>', socket.conn.remoteAddress);
   socket.on('sendMessage', function(messageData) {
     console.log('Message received =>', messageData);
-    socket.emit('sendMessageToAll', messageData);
+    io.emit('sendMessageToAll', messageData);
   });
 });
 
